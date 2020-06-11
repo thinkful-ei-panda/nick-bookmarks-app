@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@500;600;700;800&display=swap');
+
+.group{
+  display: flex;
+}
+
+.item{
+
+}
+
+header{
+  background-color: #0E0E11;
+  border-bottom: 1px solid #33343A;
+  text-align: center;
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:1000;
+}
+
+body{
+  background-color: #0E0E11;
+}
+
+main{
+  max-width: 500px;
+  margin: auto;
+  text-align: center;
+  padding: 250px 0;
+  margin: auto;
+  max-width: 1000px;
+}
+
+.navbar {
+  border-top: 1px solid #33343A;
+  text-align: center;
+  background-color: #0E0E11;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 20px;
+}
+
+button {
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+  border: 0px;
+}
