@@ -1,1 +1,50 @@
-<!-- Initial Page -->
+<!-- Initial View -->
+<div class="no-bookmarks">
+  <img src="/images/logo-no-text.png" alt="new-bookmark" />
+  <h2>No bookmarks!</h2>
+  <button class="button-lit">Add bookmark</button>
+</div>
+
+<!-- List View -->
+<ul class="bookmarks-list">
+  <li class="list-item">
+    <h2 class="list-title">Youtube</h2>
+    <div class="stars">
+      <img src="/images/star-unlit.png" alt="new-bookmark" />
+      <img src="/images/star-lit.png" alt="new-bookmark" />
+      <img src="/images/star-lit.png" alt="new-bookmark" />
+      <img src="/images/star-lit.png" alt="new-bookmark" />
+      <img src="/images/star-lit.png" alt="new-bookmark" />
+    </div>
+  </li>
+</ul>
+
+<!-- Create New View -->
+<div class="create-item-box">
+  <section>
+    <h2>New bookmark</h2>
+  </section>
+  <form action="" method="post">
+    <section>
+      <label for="url">Insert url:</label>
+      <input type="url" id="url-input" name="url" placeholder="http://randomsite.com">
+    </section>
+    <section>
+      <div class="stars">
+        <img src="/images/star-unlit.png" alt="new-bookmark" />
+        <img src="/images/star-lit.png" alt="new-bookmark" />
+        <img src="/images/star-lit.png" alt="new-bookmark" />
+        <img src="/images/star-lit.png" alt="new-bookmark" />
+        <img src="/images/star-lit.png" alt="new-bookmark" />
+      </div>
+    </section>
+    <section>
+      <label for="description">Description:</label>
+      <textarea id="title" name="description" placeholder="write a description......"></textarea>
+    </section>
+    <section class="force-row">
+      <button class="button-unlit set-width">Cancel</button>
+      <input class="button-lit set-width" type="submit" value="Create">
+    </section>
+  </form>
+</div>

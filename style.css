@@ -1,16 +1,79 @@
 @import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@500;600;700;800&display=swap');
 
+/* General */
 .group{
   display: flex;
+  justify-content: center;
 }
 
-.item{
-
+.full-width-image{
+  width: 60%;
 }
+
+body{
+  background-color: #0E0E11;
+}
+
+h2{
+  font-weight: 300;
+  font-family: 'Darker Grotesque', sans-serif;;
+  color: #eee;
+}
+
+.set-width{
+  width:100px;
+}
+
+main{
+  max-width: 800px;
+  margin: auto;
+  position: absolute;
+  top:142px;
+  bottom:160px; 
+  left:0px; 
+  right:0px;
+  overflow:auto;
+  text-align: center;
+}
+
+button{
+  padding: 15px;
+  background-color: #5BC7D3;
+  border: 0px;
+  color: #0E0E11;
+  font-weight: 700;
+  font-family: 'Darker Grotesque', sans-serif;;
+  font-size: 24px;
+  border-radius: 5px;
+}
+
+.button-unlit{
+  background-color: #33343A;
+  border-radius: 5px;
+}
+
+.button-lit{
+  padding: 15px;
+  background-color: #5BC7D3;
+  border: 0px;
+  color: #0E0E11;
+  font-weight: 700;
+  font-family: 'Darker Grotesque', sans-serif;;
+  font-size: 24px;
+  border-radius: 5px;
+}
+
+/* General End */
+
+/* Header */
 
 header{
   background-color: #0E0E11;
   border-bottom: 1px solid #33343A;
+  overflow:hidden;
+  position:absolute;
+  bottom:0px; height:120px; left:0px; right:0px;
+  padding-top: 40px;
   text-align: center;
   position:fixed;
   top:0;
@@ -18,35 +81,143 @@ header{
   z-index:1000;
 }
 
-body{
-  background-color: #0E0E11;
+/* Header End */
+
+/* Initial View */
+
+.no-bookmarks{
+  left:0; 
+  right:0;
+  top:0; 
+  bottom:0;
+  margin:auto;
+  margin-top: 40px;
 }
 
-main{
-  max-width: 500px;
+/* Initial View End */
+
+/* List View */
+.bookmarks-list{
+  list-style: none;
+  display: inline;
+}
+
+.list-item{
+  /* border-top: 1px solid #33343A; */
+  border-bottom: 1px solid #33343A;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.list-title{
+  padding-left: 15px;
+}
+
+.stars{
+  margin-left: auto;
+  padding:15px;
+}
+
+/* List View End */
+
+/* Create View */
+
+.create-item-box{
+  font-weight: 300;
+  font-family: 'Darker Grotesque', sans-serif;
+
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #33343A;
   margin: auto;
-  text-align: center;
-  padding: 250px 0;
-  margin: auto;
-  max-width: 1000px;
+  margin-top: 45px;
+  padding-bottom: 28px;
+  max-width: 300px;
+}
+
+textarea {
+  resize: none;
+  background-color: #0E0E11;
+  width: 250px;
+  height: 180px;
+  color: #eee;
+  font-weight: 300;
+  font-family: 'Darker Grotesque', sans-serif;
+  font-size: 20px;
+}
+
+input{
+  width: 250px;
+  background-color: #0E0E11;
+  color: #eee;
+  font-weight: 300;
+  font-family: 'Darker Grotesque', sans-serif;
+  font-size: 20px;
+}
+
+label {
+  float: left;
+  display: block;
+  font-size: 20px;
+  color: #33343A;
+  margin-left: 22px;
+}
+
+.force-row{
+  justify-content: space-between;
+  margin-top: 25px;
+}
+/* Create View End */
+
+/* Footer */
+footer{
+  background-color: #0E0E11;
+  overflow:hidden;
+  position:absolute;
+  bottom:0px; height:120px; left:0px; right:0px;
 }
 
 .navbar {
   border-top: 1px solid #33343A;
-  text-align: center;
-  background-color: #0E0E11;
-  overflow: hidden;
+  background-color: #111113;
   position: fixed;
   bottom: 0;
   width: 100%;
-  padding: 20px;
+  padding-bottom: 20px;
 }
 
-button {
+.nav-button{
   background-color: Transparent;
-  background-repeat:no-repeat;
-  cursor:pointer;
-  overflow: hidden;
-  outline:none;
   border: 0px;
+  flex-shrink: 3;
 }
+
+.nav-buttons img{
+  width: 100%;
+}
+
+/* Footer End */
+
+/* Scroll Bar */
+
+/* Width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #111113;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #303035;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}
+/* Scroll Bar End */
