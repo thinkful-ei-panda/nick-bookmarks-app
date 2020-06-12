@@ -1,3 +1,5 @@
+import store from './store.js';
+
 
 function initialViewTemplate() {
   return `
@@ -25,11 +27,17 @@ function listViewTemplate() {
 
 function generateListItems() {
   //will use store and listItemTemplate to generate all list items into one lare string 
+  let finalListString = '';
+
+  for (let i = 0; i < store.store.bookmarks.length; i++) {
+
+    finalListString += listItemTemplate(store.store.bookmarks[i].title, store.store.bookmarks[i].rating);
+  }
   //then return that large string
 
   //for test purposes we will just call list tempalte once with values and push it through
 
-  return listItemTemplate('Youtube', 3);
+  return finalListString;
 }
 
 function listItemTemplate(title, rating) {
@@ -83,7 +91,7 @@ function createViewTemplate() {
           <textarea id="title" name="description" placeholder="write a description......"></textarea>
         </section>
         <section class="force-row">
-          <button class="button-unlit set-width">Cancel</button>
+          <input  id="js-cancel-add" class="button-unlit set-width" type="button" value="Cancel"></input>
           <input class="button-lit set-width" type="submit" value="Create">
         </section>
       </form>
