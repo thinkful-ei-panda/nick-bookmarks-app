@@ -14,14 +14,22 @@ body{
   background-color: #0E0E11;
 }
 
-h2{
+h2, p{
   font-weight: 300;
   font-family: 'Darker Grotesque', sans-serif;;
   color: #eee;
 }
 
+p{
+  font-size: 18px;
+}
+
 .set-width{
   width:100px;
+}
+
+.center{
+  text-align: center;
 }
 
 main{
@@ -38,13 +46,13 @@ main{
 
 button{
   padding: 15px;
-  background-color: #5BC7D3;
+  /* background-color: #5BC7D3;
   border: 0px;
   color: #0E0E11;
   font-weight: 700;
   font-family: 'Darker Grotesque', sans-serif;;
   font-size: 24px;
-  border-radius: 5px;
+  border-radius: 5px; */
 }
 
 .button-unlit{
@@ -97,7 +105,7 @@ header{
   top:0; 
   bottom:0;
   margin:auto;
-  margin-top: 40px;
+  margin-top: 15vh;
 }
 
 /* Initial View End */
@@ -109,20 +117,49 @@ header{
 }
 
 .list-item{
-  /* border-top: 1px solid #33343A; */
   border-bottom: 1px solid #33343A;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.list-title{
-  padding-left: 15px;
+  flex-direction: column;
 }
 
 .stars{
   margin-left: auto;
   padding:15px;
+}
+
+.collapsible-button{
+  display: block;
+  width: 100%;
+  padding: 15px;
+  background-color: #0E0E11;
+  outline: none;
+  border: none;
+  color: #eee;
+  font-weight: 300px;
+  font-family: 'Darker Grotesque', sans-serif;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  transition: background-color 0.3s;
+
+}
+
+.collapsible-content{
+  text-align: left;
+  overflow: hidden;
+  padding: 0 40px;
+  max-height: 0;
+  transition: max-height 0.3s;
+}
+
+.delete-button{
+  outline: none;
+  border: none;
+  color: rgb(155, 30, 30);
+  background-color: #0E0E11;
+  font-weight: 500px;
+  font-size: 20px;
+  font-family: 'Darker Grotesque', sans-serif;
 }
 
 /* List View End */
@@ -150,7 +187,7 @@ textarea {
   color: #eee;
   font-weight: 300;
   font-family: 'Darker Grotesque', sans-serif;
-  font-size: 20px;
+  font-size: 20px; 
 }
 
 input{
@@ -179,7 +216,7 @@ label {
 /* Footer */
 footer{
   background-color: #0E0E11;
-  overflow:hidden;
+  overflow:visible;
   position:absolute;
   bottom:0px; height:120px; left:0px; right:0px;
 }
@@ -191,6 +228,7 @@ footer{
   bottom: 0;
   width: 100%;
   padding-bottom: 20px;
+  transition: 0.3s;
 }
 
 .nav-button{
@@ -201,6 +239,24 @@ footer{
 
 .nav-buttons img{
   width: 100%;
+}
+
+.dropup {
+  position: relative;
+  display: inline-block; 
+  text-align: center;
+}
+
+.dropup-content {
+  font-weight: 500;
+  font-family: 'Darker Grotesque', sans-serif;;
+  color: #77B1B7;
+  font-size: 24px;
+  position: absolute;
+  bottom: 121px;
+  background-color: #111113;
+  min-width: 235px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
 /* Footer End */
