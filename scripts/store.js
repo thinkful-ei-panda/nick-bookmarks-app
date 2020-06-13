@@ -1,35 +1,33 @@
-let bookmarks = [
-  {
-    id: 'yepID',
-    title: 'Google Top',
-    rating: 0,
-    url: 'http://www.title1.com',
-    description: 'lorem ipsum dolor sit lorem ipsum dolor sit lorem ipsum dolor sit lorem ipsum dolor sit lorem ipsum dolor sit lorem ipsum dolor sit lorem ipsum dolor sit',
-    expanded: false
-  },
-  {
-    id: '6ffw',
-    title: 'Youtube',
-    rating: 4,
-    url: 'http://www.title2.com',
-    description: 'dolorum tempore deserunt',
-    expanded: false
-  }
-];
+let bookmarks = [];
 
 let adding = false;
 let inputRating = 0;
 let error = null;
 let filterMenuOpen = false;
-let filter;
+let filter = 0;
 
-const findById = function (id) {
+function findById(id) {
   return this.bookmarks.find(currentItem => currentItem.id === id);
-};
+}
 
-const findAndDelete = function (id) {
+function addBookmark(item) {
+  this.bookmarks.push(item);
+}
+
+function setExpansionsFalse() {
+  this.bookmarks.forEach((bookmark) => {
+    if (bookmark.expanded)
+      bookmark.expanded = false;
+  });
+}
+
+function findAndDelete(id) {
   this.bookmarks = this.bookmarks.filter(currentItem => currentItem.id !== id);
-};
+}
+
+function setError(error) {
+  this.error = error;
+}
 
 export default {
   bookmarks,
@@ -39,6 +37,9 @@ export default {
   filterMenuOpen,
   filter,
   findById,
-  findAndDelete
+  addBookmark,
+  setExpansionsFalse,
+  findAndDelete,
+  setError
 
 };

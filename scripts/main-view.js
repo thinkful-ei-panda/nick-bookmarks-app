@@ -1,5 +1,22 @@
 import templates from './templates.js';
 import store from './store.js';
+import api from './api.js';
+
+const renderError = function () {
+  if (store.error) {
+    const errorHTML = templates.generateError(store.error);
+    $('.error-container').html(errorHTML);
+  } else {
+    $('.error-container').empty();
+  }
+};
+
+const handleCloseError = function () {
+  $('.error-container').on('click', '#cancel-error', () => {
+    store.setError(null);
+    renderError();
+  });
+};
 
 //render function
 function render(destination, content) {
@@ -12,6 +29,7 @@ function handleClickNewBookmarkButton() {
     event.preventDefault();
     render('main', templates.createViewTemplate);
     store.filterMenuOpen = false;
+    store.setExpansionsFalse();
     render('footer', '');
   });
 }
@@ -32,19 +50,25 @@ function handleClickCreateButton() {
     const title = $(event.currentTarget)[0][1].value;
     const rating = store.inputRating;
     const url = $(event.currentTarget)[0][0].value;
-    const description = $(event.currentTarget)[0][2].value;
+    const desc = $(event.currentTarget)[0][2].value;
 
     const newBookmark = {
-      id: '000',
       title,
       rating,
       url,
-      description,
+      desc,
       expanded: false
     };
 
-    store.bookmarks.push(newBookmark);
-    checkForLoadInitialView();
+    api.createBookmark(newBookmark)
+      .then((newBookmark) => {
+        store.addBookmark(newBookmark);
+        checkForLoadInitialView();
+      })
+      .catch((error) => {
+        store.setError(error.message);
+        renderError();
+      });
     store.inputRating = 0;
   });
 
@@ -69,6 +93,16 @@ function handleClickFilterButton() {
   });
 }
 
+function handleClickFiltering() {
+  $('footer').on('click', '.filter-button', function (event) {
+    event.preventDefault();
+    //get the value of the filter clicked and set store.filter to that value
+    store.filter = parseInt($(event.currentTarget)[0].name[7]);
+
+    checkForLoadInitialView();
+  });
+}
+
 function handleClickListItem() {
   $('main').on('click', '.collapsible-button', function (event) {
     event.preventDefault();
@@ -80,11 +114,7 @@ function handleClickListItem() {
     //set the expanded bool to the opposite of what it currently is 
     item.expanded = !item.expanded;
 
-    if (item.expanded) {
-      $(event.currentTarget).parent('.list-item').children('.collapsible-content').css({ 'max-height': '200px' });
-    } else {
-      $(event.currentTarget).parent('.list-item').children('.collapsible-content').css({ 'max-height': '0px' });
-    }
+    render('main', templates.listViewTemplate());
   });
 }
 
@@ -98,8 +128,16 @@ function handleClickDeleteButton() {
   $('main').on('click', '.delete-button', function (event) {
     event.preventDefault();
     const id = getItemIdFromElement(event.currentTarget);
-    store.findAndDelete(id);
-    checkForLoadInitialView();
+
+    api.deleteItem(id)
+      .then(() => {
+        store.findAndDelete(id);
+        checkForLoadInitialView();
+      })
+      .catch((error) => {
+        store.setError(error.message);
+        renderError();
+      });
   });
 }
 
@@ -123,10 +161,12 @@ function bindEventListeners() {
   handleRatingStars();
   handleClickListItem();
   handleClickDeleteButton();
+  handleCloseError();
+  handleClickFiltering();
   checkForLoadInitialView();
 }
 
 export default {
   bindEventListeners,
-  render
+  checkForLoadInitialView
 };

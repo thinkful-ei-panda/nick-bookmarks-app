@@ -10,6 +10,27 @@
   width: 60%;
 }
 
+.space-between{
+  justify-content: space-between;
+}
+
+.ten-margin-top{
+  margin-top: 10px;
+}
+
+.force-row{
+  display: flex;
+  flex-direction: row;
+}
+
+.set-width{
+  width:100px;
+}
+
+.center{
+  text-align: center;
+}
+
 body{
   background-color: #0E0E11;
 }
@@ -22,14 +43,6 @@ h2, p{
 
 p{
   font-size: 18px;
-}
-
-.set-width{
-  width:100px;
-}
-
-.center{
-  text-align: center;
 }
 
 main{
@@ -45,14 +58,20 @@ main{
 }
 
 button{
-  padding: 15px;
-  /* background-color: #5BC7D3;
-  border: 0px;
-  color: #0E0E11;
-  font-weight: 700;
-  font-family: 'Darker Grotesque', sans-serif;;
-  font-size: 24px;
-  border-radius: 5px; */
+  /* padding: 15px; */
+}
+
+.active-button{
+  position: relative;
+  transition: all 0.1s;
+  -webkit-transition: all 0.1s;
+  outline: none;
+  border: none;
+}
+
+.active-button:active{
+  transform: translate(0px,5px);
+  -webkit-transform: translate(0px,5px);
 }
 
 .button-unlit{
@@ -75,6 +94,16 @@ button{
   font-family: 'Darker Grotesque', sans-serif;;
   font-size: 24px;
   border-radius: 5px;
+}
+
+.error-content p{
+  color: rgb(155, 30, 30);
+  background-color: #0E0E11;
+  font-weight: 500px;
+  font-size: 20px;
+  font-family: 'Darker Grotesque', sans-serif;
+  align-self: center;
+  margin-top: 60px;
 }
 
 /* General End */
@@ -145,11 +174,12 @@ header{
 }
 
 .collapsible-content{
+  display: flex;
   text-align: left;
   overflow: hidden;
   padding: 0 40px;
-  max-height: 0;
-  transition: max-height 0.3s;
+  transition: 0.3s;
+  flex-direction: column;
 }
 
 .delete-button{
@@ -160,6 +190,13 @@ header{
   font-weight: 500px;
   font-size: 20px;
   font-family: 'Darker Grotesque', sans-serif;
+  align-self: center;
+  padding: 15px;
+  margin: 20px;
+}
+
+#visit-button{
+  margin: 20px;
 }
 
 /* List View End */
@@ -207,10 +244,11 @@ label {
   margin-left: 22px;
 }
 
-.force-row{
-  justify-content: space-between;
-  margin-top: 25px;
+#bottom-create{
+  margin: 20px;
+  margin-bottom: 0px;
 }
+
 /* Create View End */
 
 /* Footer */
@@ -232,6 +270,7 @@ footer{
 }
 
 .nav-button{
+  padding: 15px;
   background-color: Transparent;
   border: 0px;
   flex-shrink: 3;
@@ -247,11 +286,22 @@ footer{
   text-align: center;
 }
 
-.dropup-content {
-  font-weight: 500;
-  font-family: 'Darker Grotesque', sans-serif;;
+.filter-button{
+  padding: 15px;
+  background-color: Transparent;
+  border: 0px;
+  flex-shrink: 3;
+}
+
+.filter-button p{
   color: #77B1B7;
+  padding-top: 2px;
   font-size: 24px;
+  margin: 0 0 0 10px;
+  white-space: nowrap;
+}
+
+.dropup-content{
   position: absolute;
   bottom: 121px;
   background-color: #111113;
