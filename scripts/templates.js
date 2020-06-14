@@ -3,7 +3,7 @@ import store from './store.js';
 function initialViewTemplate() {
   return `
     <div class="no-bookmarks">
-      <img src="/images/logo-no-text.png" alt="new-bookmark" />
+      <img src="images/logo-no-text.png" alt="new-bookmark" />
       <h2>No bookmarks!</h2>
       <button id="add-bookmark-button" class="button-lit active-button">Add bookmark</button>
     </div>
@@ -139,7 +139,7 @@ function footerTemplate() {
   if (store.filterMenuOpen) {
     filterMenu = `
       <button class="filter-button force-row active-button" name="filter 5 stars only">
-        <img src="/images/star-lit.png" alt="Lit Star" /> 
+        <img src="images/star-lit.png" alt="Lit Star" /> 
         <img src="/images/star-lit.png" alt="Lit Star" /> 
         <img src="/images/star-lit.png" alt="Lit Star" /> 
         <img src="/images/star-lit.png" alt="Lit Star" /> 
