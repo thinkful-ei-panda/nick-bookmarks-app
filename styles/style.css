@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@500;600;700;800&display=swap');
 
 /* General */
+
 .group{
   display: flex;
   justify-content: center;
@@ -57,9 +58,6 @@ main{
   text-align: center;
 }
 
-button{
-  /* padding: 15px; */
-}
 
 .active-button{
   position: relative;
@@ -241,7 +239,7 @@ label {
   float: left;
   display: block;
   font-size: 20px;
-  color: #33343A;
+  color: #eee;
   margin-left: 22px;
 }
 
@@ -268,16 +266,18 @@ footer{
   width: 100%;
   padding-bottom: 20px;
   transition: 0.3s;
+  flex-shrink: 3;
+  flex-wrap: nowrap; 
 }
 
 .nav-button{
   padding: 15px;
   background-color: Transparent;
   border: 0px;
-  flex-shrink: 3;
+  max-width: 100%;
 }
 
-.nav-buttons img{
+.nav-button img{
   width: 100%;
 }
 
@@ -334,3 +334,11 @@ footer{
   background: #888;
 }
 /* Scroll Bar End */
+
+*:focus {
+  outline: none;
+}
+
+.focus-visible:focus {
+  outline: #CB7519 solid 2px;
+}

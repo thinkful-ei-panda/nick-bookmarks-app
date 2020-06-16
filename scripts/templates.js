@@ -4,8 +4,8 @@ function initialViewTemplate() {
   return `
     <div class="no-bookmarks">
       <img src="images/logo-no-text.png" alt="new-bookmark" />
-      <h2>No bookmarks!</h2>
-      <button id="add-bookmark-button" class="button-lit active-button">Add bookmark</button>
+      <h2>No bookmarks!</h2> 
+      <button id="add-bookmark-button" class="focus-visible button-lit active-button">Add bookmark</button>
     </div>
   `;
 }
@@ -59,10 +59,10 @@ function listItemTemplate(id, url, title, rating, description, expanded) {
         </p>
         <div class="force-row space-between">
           <div>
-            <button data-item-id="${id}" type="button" class="delete-button active-button">Delete</button>
+            <button data-item-id="${id}" type="button" class="focus-visible delete-button active-button">Delete</button>
           </div>
           <form action="${url}" target="_blank">
-            <input id="visit-button" class="button-lit active-button" type="submit" value="Visit Site" />
+            <input id="visit-button" class="focus-visible button-lit active-button" type="submit" value="Visit Site" />
           </form>
         </div>
       </div> 
@@ -71,7 +71,7 @@ function listItemTemplate(id, url, title, rating, description, expanded) {
 
   return `
     <li class="collapsible list-item">
-      <button data-item-id="${id}" type="button" class="collapsible-button active-button">
+      <button data-item-id="${id}" type="button" class="focus-visible collapsible-button active-button">
         <h2>${title}</h2>
         <div class="stars">
           ${starArray[4]} ${starArray[3]} ${starArray[2]} ${starArray[1]} ${starArray[0]}
@@ -93,7 +93,7 @@ function createStarRatingTemplate() {
       sourceImage = 'unlit';
     }
 
-    startString += `<img id="ratingStar" src="images/star-${sourceImage}.png" alt="rate ${i}" />`;
+    startString += `<img id="ratingStar" tabindex="0" class="focus-visible" src="images/star-${sourceImage}.png" alt="rate ${i}" />`;
   }
   return startString;
 }
@@ -109,24 +109,25 @@ function createViewTemplate() {
       <form action="" method="post" id="js-creation-form">
         <section>
           <label for="url">Insert url:</label>
-          <input type="url" id="url-input" name="url" placeholder="http://randomsite.com" required>
+          <input type="url" id="url-input" class="focus-visible" name="url" placeholder="http://randomsite.com" required>
         </section>
         <section class="ten-margin-top">
           <label for="title">Title:</label>
-          <input type="text" id="title-input" name="title" placeholder="Name of Bookmark" required>
+          <input type="text" id="title-input" class="focus-visible" name="title" placeholder="Name of Bookmark" required>
         </section>
         <section>
           <div class="stars ten-margin-top">
+            <h2>Rating:</h2>
             ${createStarRatingTemplate()}
           </div>
         </section>
         <section>
           <label for="description">Description:</label>
-          <textarea id="description" name="description" placeholder="write a description......"></textarea>
+          <textarea id="description" name="description" class="focus-visible" placeholder="write a description......"></textarea>
         </section>
         <section id="bottom-create" class="force-row space-between">
-          <input  id="js-cancel-add" class="button-unlit set-width active-button" type="button" value="Cancel"></input>
-          <input id="js-create-button" class="button-lit set-width active-button" type="submit" value="Create">
+          <input  id="js-cancel-add" class="focus-visible button-unlit set-width active-button" type="button" value="Cancel"></input>
+          <input id="js-create-button" class="focus-visible button-lit set-width active-button" type="submit" value="Create">
         </section>
       </form>
     </div>  
@@ -138,7 +139,7 @@ function footerTemplate() {
 
   if (store.filterMenuOpen) {
     filterMenu = `
-      <button class="filter-button force-row active-button" name="filter 5 stars only">
+      <button class="focus-visible filter-button force-row active-button" name="filter 5 stars only">
         <img src="images/star-lit.png" alt="Lit Star" /> 
         <img src="images/star-lit.png" alt="Lit Star" /> 
         <img src="images/star-lit.png" alt="Lit Star" /> 
@@ -146,7 +147,7 @@ function footerTemplate() {
         <img src="images/star-lit.png" alt="Lit Star" />
         <p>only</p> 
       </button>
-      <button class="filter-button force-row active-button" name="filter 4 stars and up">
+      <button class="focus-visible filter-button force-row active-button" name="filter 4 stars and up">
         <img src="images/star-unlit.png" alt="Unlit Star" /> 
         <img src="images/star-lit.png" alt="Lit Star" /> 
         <img src="images/star-lit.png" alt="Lit Star" /> 
@@ -154,7 +155,7 @@ function footerTemplate() {
         <img src="images/star-lit.png" alt="Lit Star" /> 
         <p>& up</p>
       </button>
-      <button class="filter-button force-row active-button" name="filter 3 stars and up">
+      <button class="focus-visible filter-button force-row active-button" name="filter 3 stars and up">
         <img src="images/star-unlit.png" alt="Unlit Star" /> 
         <img src="images/star-unlit.png" alt="Unlit Star" /> 
         <img src="images/star-lit.png" alt="Lit Star" />  
@@ -162,7 +163,7 @@ function footerTemplate() {
         <img src="images/star-lit.png" alt="Lit Star" /> 
         <p>& up</p>
       </button>
-      <button class="filter-button force-row active-button" name="filter 2 stars and up">
+      <button class="focus-visible filter-button force-row active-button" name="filter 2 stars and up">
         <img src="images/star-unlit.png" alt="Unlit Star" /> 
         <img src="images/star-unlit.png" alt="Unlit Star" /> 
         <img src="images/star-unlit.png" alt="Unlit Star" /> 
@@ -170,7 +171,7 @@ function footerTemplate() {
         <img src="images/star-lit.png" alt="Lit Star" /> 
         <p>& up</p>
       </button>
-      <button class="filter-button force-row active-button" name="filter 1 star and up">
+      <button class="focus-visible filter-button force-row active-button" name="filter 1 star and up">
         <img src="images/star-unlit.png" alt="Unlit Star" /> 
         <img src="images/star-unlit.png" alt="Unlit Star" /> 
         <img src="images/star-unlit.png" alt="Unlit Star" /> 
@@ -182,9 +183,11 @@ function footerTemplate() {
   }
 
   return `
-    <button id="add-bookmark-button" class="nav-button active-button"><img src="images/new-button.png" alt="new-bookmark" /></button>
+    <div>
+    <button id="add-bookmark-button" class="focus-visible nav-button active-button"><img src="images/new-button.png" alt="new-bookmark" /></button>
+    </div>
     <div class="dropup">
-      <button class="nav-button drop-button active-button"><img src="images/filter-button.png" alt="filter" /></button>
+      <button class="focus-visible nav-button drop-button active-button"><img src="images/filter-button.png" alt="filter" /></button>
       <div class="dropup-content">
         ${filterMenu}
       </div>

@@ -85,6 +85,16 @@ function handleRatingStars() {
   });
 }
 
+function handleEnterPressRatingStars() {
+  $('main').on('keypress', '#ratingStar', function (event) {
+    let keycode = (event.keyCode ? event.keyCode : event.which);
+    if (keycode == '13') {
+      store.inputRating = parseInt(document.activeElement.alt[5]);
+      render('.stars', templates.createStarRatingTemplate());
+    }
+  });
+}
+
 function handleClickFilterButton() {
   $('footer').on('click', '.drop-button', function (event) {
     event.preventDefault();
@@ -163,6 +173,7 @@ function bindEventListeners() {
   handleClickDeleteButton();
   handleCloseError();
   handleClickFiltering();
+  handleEnterPressRatingStars();
   checkForLoadInitialView();
 }
 
