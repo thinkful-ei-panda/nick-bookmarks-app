@@ -116,8 +116,8 @@ function createViewTemplate() {
           <input type="text" id="title-input" class="focus-visible" name="title" placeholder="Name of Bookmark" required>
         </section>
         <section>
-          <div class="stars ten-margin-top">
-            <h2>Rating:</h2>
+          <h2>Rating:</h2>
+          <div class="stars grey-bg ten-margin-top">
             ${createStarRatingTemplate()}
           </div>
         </section>
